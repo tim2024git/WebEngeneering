@@ -18,6 +18,8 @@ import AddLecturer from './components/AddLecturer';
 
 import EditStudyProgram from './components/EditStudyProgramm';
 import EditLecture from './components/EditLecture';
+import EditLecturer from './components/EditLecturer';
+import EditLectureDate from './components/EditLectureDate';
 
 import './App.css';
 
@@ -41,6 +43,9 @@ function App() {
 
           <Route path="/admin/edit-study-program/:id" element={<EditStudyProgram />} />
           <Route path="/admin/edit-lectures/:id" element={<EditLecture />} />
+          <Route path="/admin/edit-lecturers/:id" element={<EditLecturer />} />
+          <Route path="/admin/edit-lecture-date/:id" element={<EditLectureDate />} />
+          
         </Route>
       </Routes>
     </BrowserRouter>

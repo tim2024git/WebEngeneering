@@ -64,10 +64,10 @@ function AddLecture() {
     <div>
       <AdminNavbar />
       <div className="container mt-5 pt-5">
-        <h1 className="mt-5">Add Lecture</h1>
+        <h1 className="mt-5">Vorlesung hinzufügen</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="lectureName" className="form-label">Lecture Name</label>
+            <label htmlFor="lectureName" className="form-label">Vorlesungsname</label>
             <input
               type="text"
               className="form-control"
@@ -78,7 +78,7 @@ function AddLecture() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="modulName" className="form-label">Module Name</label>
+            <label htmlFor="modulName" className="form-label">Kürzel</label>
             <input
               type="text"
               className="form-control"
@@ -89,7 +89,7 @@ function AddLecture() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="duration" className="form-label">Duration</label>
+            <label htmlFor="duration" className="form-label">Zeit in min</label>
             <input
               type="text"
               className="form-control"
@@ -99,7 +99,7 @@ function AddLecture() {
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">Add Lecture</button>
+          <button type="submit" className="btn btn-primary">Hinzufügen</button>
         </form>
         {error && <div className="alert alert-danger mt-3">{error}</div>}
         {success && <div className="alert alert-success mt-3">{success}</div>}

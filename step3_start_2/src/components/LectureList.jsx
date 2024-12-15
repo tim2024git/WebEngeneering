@@ -48,9 +48,9 @@ function LectureList() {
                             <table className='table table-hover table-responsive table-alignment'>
                                 <thead>
                                     <tr>
-                                        <th>Lecture Name</th>
-                                        <th>Module Name</th>
-                                        <th>Duration</th>
+                                        <th>Vorlesungsname</th>
+                                        <th>Kürzel</th>
+                                        <th>Zeit in min</th>
                                         <th></th>
                                     </tr>
                                 </thead>

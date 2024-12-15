@@ -62,10 +62,10 @@ function AddLecturer() {
     <div>
       <AdminNavbar />
       <div className="container mt-5 pt-5">
-        <h1 className="mt-5">Add Lecturer</h1>
+        <h1 className="mt-5">Dozent hinzufügen</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="firstName" className="form-label">First Name</label>
+            <label htmlFor="firstName" className="form-label">Vorname</label>
             <input
               type="text"
               className="form-control"
@@ -76,7 +76,7 @@ function AddLecturer() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="lastName" className="form-label">Last Name</label>
+            <label htmlFor="lastName" className="form-label">Nachname</label>
             <input
               type="text"
               className="form-control"
@@ -97,18 +97,7 @@ function AddLecturer() {
               onChange={handleChange}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="department" className="form-label">Department</label>
-            <input
-              type="text"
-              className="form-control"
-              id="department"
-              name="department"
-              value={lecturer.department}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">Add Lecturer</button>
+          <button type="submit" className="btn btn-primary">Hinzufügen</button>
         </form>
         {error && <div className="alert alert-danger mt-3">{error}</div>}
         {success && <div className="alert alert-success mt-3">{success}</div>}

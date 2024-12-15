@@ -1,9 +1,8 @@
-var apiUrlLectureDates = "http://localhost:9090/lecture-dates";
+const apiUrlLectureDates = "http://localhost:9090/lecture-dates";
 
 async function fetchLectureDates() {
-    const apiUrl = apiUrlLectureDates;
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrlLectureDates);
         if (!response.ok) {
             throw new Error(`HTTP error: The status is ${response.status}`);
         }
@@ -15,9 +14,7 @@ async function fetchLectureDates() {
 }
 
 async function saveLectureDate(lectureDate) {
-    const apiUrl = apiUrlLectureDates;
-    console.log(lectureDate);
-    const response = await fetch(apiUrl, {
+    const response = await fetch(apiUrlLectureDates, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -25,30 +22,30 @@ async function saveLectureDate(lectureDate) {
         body: JSON.stringify(lectureDate),
     });
 
-    if (response.ok) {
-        console.log("Vorlesungstermin erfolgreich erstellt!");
-    } else {
-        console.log("Fehler bei der Erstellung des Vorlesungstermins!");
+    if (!response.ok) {
+        throw new Error(`Error saving lecture date: ${response.statusText}`);
     }
+
+    const data = await response.json();
+    return data;
 }
 
 async function fetchLectureDate(id) {
-    const apiUrl = apiUrlLectureDates + `/${id}`;
-    console.log("api url =" + apiUrl);
+    const apiUrl = `${apiUrlLectureDates}/${id}`;
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`This is an HTTP error: The status is ${response.status}`);
         }
-        let responseJson = await response.json();
+        const responseJson = await response.json();
         return responseJson;
-    } catch (err) {
-        console.log(err.message);
+    } catch (error) {
+        throw new Error(`Error fetching lecture date: ${error.message}`);
     }
 }
 
 async function updateLectureDate(id, lectureDate) {
-    const apiUrl = apiUrlLectureDates + `/${id}`;
+    const apiUrl = `${apiUrlLectureDates}/${id}`;
     try {
         const response = await fetch(apiUrl, {
             method: 'PUT',
@@ -61,15 +58,13 @@ async function updateLectureDate(id, lectureDate) {
         if (!response.ok) {
             throw new Error(`This is an HTTP error: The status is ${response.status}`);
         }
-    } catch (err) {
-        console.log(err.message);
+    } catch (error) {
+        throw new Error(`Error updating lecture date: ${error.message}`);
     }
 }
 
 async function deleteLectureDate(id) {
-    console.log("lecture date Id =" + id);
-    const apiUrl = apiUrlLectureDates + `/${id}`;
-    console.log(apiUrl);
+    const apiUrl = `${apiUrlLectureDates}/${id}`;
     try {
         const response = await fetch(apiUrl, {
             method: 'DELETE',
@@ -78,31 +73,30 @@ async function deleteLectureDate(id) {
             },
         });
 
-        if (response.ok) {
-            console.log('Die Anfrage für den Vorlesungstermin wurde erfolgreich gesendet!');
-        } else {
-            console.error('Fehler bei der Anfrage:', response.status, response.statusText);
+        if (!response.ok) {
+            throw new Error(`Error deleting lecture date: ${response.statusText}`);
         }
-    } catch (err) {
-        console.log(err.message);
+    } catch (error) {
+        throw new Error(`Error deleting lecture date: ${error.message}`);
     }
 }
 
 function activateSidebarLink(id) {
-    let navlinkId = id;
-    let linkElement = document.getElementById(navlinkId);
+    let linkElement = document.getElementById(id);
     let sidebarLinks = document.getElementsByClassName('nav-link');
     for (let element of sidebarLinks) {
         element.classList.remove('active');
     }
-    if (linkElement != undefined) {
+    if (linkElement !== undefined) {
         linkElement.classList.add('active');
     }
 }
 
-export { activateSidebarLink };
-export { deleteLectureDate };
-export { updateLectureDate };
-export { fetchLectureDate };
-export { fetchLectureDates };
-export { saveLectureDate };
+export {
+    activateSidebarLink,
+    deleteLectureDate,
+    updateLectureDate,
+    fetchLectureDate,
+    fetchLectureDates,
+    saveLectureDate
+};

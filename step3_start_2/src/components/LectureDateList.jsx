@@ -50,12 +50,7 @@ function LectureDateList() {
                                     <tr>
                                         <th>Startdatum</th>
                                         <th>Enddatum</th>
-                                        <th>Vorlesung</th>
-                                        <th>Modulname</th>
-                                        <th>Dauer</th>
-                                        <th>Raum</th>
-                                        <th>Dozent</th>
-                                        <th>Studienprogramm</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -64,12 +59,6 @@ function LectureDateList() {
                                             <tr key={lectureDate.id}>
                                                 <td>{lectureDate.startDate}</td>
                                                 <td>{lectureDate.endDate}</td>
-                                                <td>{lectureDate.lecture?.lectureName}</td>
-                                                <td>{lectureDate.lecture?.modulName}</td>
-                                                <td>{lectureDate.lecture?.duration}</td>
-                                                <td>{lectureDate.location}</td>
-                                                <td>{lectureDate.lecturer?.name}</td>
-                                                <td>{lectureDate.studyProgram?.name}</td>
                                                 <td className='right-align-content'>
                                                     <button onClick={() => editLectureDate(lectureDate.id)} className='btn btn-primary btn-small'> <span><i className='bi bi-pen'></i> Edit</span></button>
                                                     <button onClick={() => deleteLectureDateById(lectureDate.id)} className='btn btn-primary btn-small ms-2'> <span><i className='bi bi-trash'></i> Delete</span></button>

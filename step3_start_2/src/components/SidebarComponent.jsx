@@ -35,7 +35,7 @@ function SidebarComponent() {
             className="nav-link"
             id="btnStudiengaenge"
           >
-            <i className="fs-4 bi-speedometer2 sidebar-icon"></i>
+            <i className="fs-6 bi-speedometer2 sidebar-icon"></i>
             <span className="d-none d-lg-inline ms-2">Studiengänge</span>
           </Link>
         </li>
@@ -62,7 +62,7 @@ function SidebarComponent() {
         <li className="nav-item">
           <Link
             onClick={(e) => activateSidebarLink(e, "btnStudienjahrgaenge")}
-            to="./studyclasses"
+            
             className="nav-link"
             id="btnStudienjahrgaenge"
             >
@@ -73,7 +73,7 @@ function SidebarComponent() {
         <li className="nav-item">
           <Link
             onClick={(e) => activateSidebarLink(e, "btnSemester")}
-            to="./semester"
+            
             className="nav-link"
             id="btnSemester"
             >

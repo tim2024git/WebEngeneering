@@ -119,7 +119,7 @@ function AddStudyProgram() {
     <div>
       <AdminNavbar />
       <div className="container mt-5 pt-5">
-        <h1 className="mt-5">Add Study Program</h1>
+        <h1 className="mt-5">Studiengänge hinzufügen</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="name" className="form-label">Name</label>
@@ -134,7 +134,7 @@ function AddStudyProgram() {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="shortName" className="form-label">Short Name</label>
+            <label htmlFor="shortName" className="form-label">Kürzel</label>
             <input
               type="text"
               className="form-control"
@@ -147,7 +147,7 @@ function AddStudyProgram() {
 
           {/* Dropdown für Vorlesungen */}
           <div className="mb-3">
-            <label htmlFor="lectures" className="form-label">Select Lectures</label>
+            <label htmlFor="lectures" className="form-label">Vorlesung auswählen</label>
             <select
               className="form-control"
               id="lectures"
@@ -155,7 +155,7 @@ function AddStudyProgram() {
               value={studyProgram.lectures}
               onChange={handleChange}
             >
-              <option value="">Select lectures</option>
+              <option value="">Keiner</option>
               {lecturesOptions.map((lecture) => (
                 <option key={lecture.id} value={lecture.id}>
                   {lecture.lectureName} {/* Anzeigen des Namens der Vorlesung */}
@@ -166,7 +166,7 @@ function AddStudyProgram() {
 
           {/* Dropdown für Dozenten */}
           <div className="mb-3">
-            <label htmlFor="lecturers" className="form-label">Select Lecturers</label>
+            <label htmlFor="lecturers" className="form-label">Dozent auswählen</label>
             <select
               className="form-control"
               id="lecturers"
@@ -174,16 +174,16 @@ function AddStudyProgram() {
               value={studyProgram.lecturers}
               onChange={handleChange}
             >
-              <option value="">Select lecturers</option>
+              <option value="">Keiner</option>
               {lecturersOptions.map((lecturer) => (
                 <option key={lecturer.id} value={lecturer.id}>
-                  {lecturer.name} {/* Anzeigen des Namens des Dozenten */}
+                  {lecturer.lastName} {/* Anzeigen des Namens des Dozenten */}
                 </option>
               ))}
             </select>
           </div>
 
-          <button type="submit" className="btn btn-primary">Add Study Program</button>
+          <button type="submit" className="btn btn-primary">Hinzufügen</button>
         </form>
 
         {error && <div className="alert alert-danger mt-3">{error}</div>}

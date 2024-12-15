@@ -7,8 +7,8 @@ import Slidepic3 from '../assets/Slidepic3.jpg';
 const data = [
   {
     image: Slidepic1,
-    caption: "Caption",
-    description: "Description Here"
+    caption: "Duale Hochschule BW",
+    description: "Eine Schule für Studierende"
   },
   {
     image: Slidepic2,

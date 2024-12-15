@@ -63,10 +63,10 @@ function AddLectureDate() {
     <div>
       <AdminNavbar />
       <div className="container mt-5 pt-5">
-        <h1 className="mt-5">Add Lecture Date</h1>
+        <h1 className="mt-5">Vorlesungstermin hinzufügen</h1>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="startDate" className="form-label">Start Date</label>
+            <label htmlFor="startDate" className="form-label">Startdatum</label>
             <input
               type="datetime-local"
               className="form-control"
@@ -77,7 +77,7 @@ function AddLectureDate() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="endDate" className="form-label">End Date</label>
+            <label htmlFor="endDate" className="form-label">Enddatum</label>
             <input
               type="datetime-local"
               className="form-control"
@@ -87,32 +87,9 @@ function AddLectureDate() {
               onChange={handleChange}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="location" className="form-label">Location</label>
-            <input
-              type="text"
-              className="form-control"
-              id="location"
-              name="location"
-              value={lectureDate.location}
-              onChange={handleChange}
-            />
-          </div>
-          {/* Optional: Hier könnte ein Dropdown für die Auswahl der Vorlesung sein */}
-          <div className="mb-3">
-            <label htmlFor="lecture" className="form-label">Select Lecture</label>
-            <select
-              className="form-control"
-              id="lecture"
-              name="lecture"
-              value={lectureDate.lecture}
-              onChange={handleChange}
-            >
-              <option value="">Select a lecture</option>
-              {/* Dynamisch Vorlesungen hinzufügen, z.B. aus einer Liste */}
-            </select>
-          </div>
-          <button type="submit" className="btn btn-primary">Add Lecture Date</button>
+          
+          
+          <button type="submit" className="btn btn-primary">Hinzufügen</button>
         </form>
         {error && <div className="alert alert-danger mt-3">{error}</div>}
         {success && <div className="alert alert-success mt-3">{success}</div>}

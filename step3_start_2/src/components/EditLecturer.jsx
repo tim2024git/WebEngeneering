@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchLecture, updateLecture } from './LectureService';
+import { fetchLecturer, updateLecturer } from './LecturerService';
 
-function EditLecture() {
+function EditLecturer() {
     const { id } = useParams();
-    const [lecture, setLecture] = useState(null);
+    const [lecturer, setLecturer] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigator = useNavigate();
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetchLecture(id);
-                setLecture(response);
+                const response = await fetchLecturer(id);
+                setLecturer(response);
                 setLoading(false);
             } catch (error) {
                 console.error(error.message);
@@ -24,16 +24,16 @@ function EditLecture() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setLecture({ ...lecture, [name]: value });
+        setLecturer({ ...lecturer, [name]: value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await updateLecture(id, lecture);
-            navigator('/admin/lectures'); // Zurück zur Vorlesungsliste
+            await updateLecturer(id, lecturer);
+            navigator('/admin/lecturers'); // Zurück zur Dozentenliste
         } catch (error) {
-            console.error('Fehler beim Aktualisieren der Vorlesung:', error);
+            console.error('Fehler beim Aktualisieren des Dozenten:', error);
         }
     };
 
@@ -43,40 +43,40 @@ function EditLecture() {
 
     return (
         <div className="container mt-5">
-            <h2>Vorlesung bearbeiten</h2>
+            <h2>Dozent bearbeiten</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label htmlFor="lectureName" className="form-label">Vorlesungsname</label>
+                    <label htmlFor="firstName" className="form-label">Vorname</label>
                     <input
                         type="text"
                         className="form-control"
-                        id="lectureName"
-                        name="lectureName"
-                        value={lecture.lectureName}
+                        id="firstName"
+                        name="firstName"
+                        value={lecturer.firstName}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="modulName" className="form-label">Kürzel</label>
+                    <label htmlFor="lastName" className="form-label">Nachname</label>
                     <input
                         type="text"
                         className="form-control"
-                        id="modulName"
-                        name="modulName"
-                        value={lecture.modulName}
+                        id="lastName"
+                        name="lastName"
+                        value={lecturer.lastName}
                         onChange={handleInputChange}
                         required
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="duration" className="form-label">Zeit in min</label>
+                    <label htmlFor="email" className="form-label">Email</label>
                     <input
-                        type="text"
+                        type="email"
                         className="form-control"
-                        id="duration"
-                        name="duration"
-                        value={lecture.duration}
+                        id="email"
+                        name="email"
+                        value={lecturer.email}
                         onChange={handleInputChange}
                         required
                     />
@@ -87,4 +87,4 @@ function EditLecture() {
     );
 }
 
-export default EditLecture;
+export default EditLecturer;

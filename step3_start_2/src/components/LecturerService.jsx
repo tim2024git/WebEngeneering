@@ -1,9 +1,8 @@
-var apiUrlLecturers = "http://localhost:9090/lecturers";
+const apiUrlLecturers = "http://localhost:9090/lecturers";
 
 async function fetchLecturers() {
-    const apiUrl = apiUrlLecturers;
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrlLecturers);
         if (!response.ok) {
             throw new Error(`HTTP error: The status is ${response.status}`);
         }
@@ -15,40 +14,41 @@ async function fetchLecturers() {
 }
 
 async function saveLecturer(lecturer) {
-    const apiUrl = apiUrlLecturers;
-    console.log(lecturer);
-    const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(lecturer),
-    });
+    try {
+        const response = await fetch(apiUrlLecturers, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(lecturer),
+        });
 
-    if (response.ok) {
-        console.log("Dozent erfolgreich erstellt!");
-    } else {
-        console.log("Fehler bei der Erstellung des Dozenten!");
+        if (response.ok) {
+            console.log("Dozent erfolgreich erstellt!");
+        } else {
+            console.log("Fehler bei der Erstellung des Dozenten!");
+        }
+    } catch (error) {
+        console.error(`Error saving lecturer: ${error.message}`);
     }
 }
 
 async function fetchLecturer(id) {
-    const apiUrl = apiUrlLecturers + `/${id}`;
-    console.log("api url =" + apiUrl);
+    const apiUrl = `${apiUrlLecturers}/${id}`;
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`This is an HTTP error: The status is ${response.status}`);
         }
-        let responseJson = await response.json();
-        return responseJson;
-    } catch (err) {
-        console.log(err.message);
+        const lecturer = await response.json();
+        return lecturer;
+    } catch (error) {
+        console.error(`Error fetching lecturer: ${error.message}`);
     }
 }
 
 async function updateLecturer(id, lecturer) {
-    const apiUrl = apiUrlLecturers + `/${id}`;
+    const apiUrl = `${apiUrlLecturers}/${id}`;
     try {
         const response = await fetch(apiUrl, {
             method: 'PUT',
@@ -61,15 +61,13 @@ async function updateLecturer(id, lecturer) {
         if (!response.ok) {
             throw new Error(`This is an HTTP error: The status is ${response.status}`);
         }
-    } catch (err) {
-        console.log(err.message);
+    } catch (error) {
+        console.error(`Error updating lecturer: ${error.message}`);
     }
 }
 
 async function deleteLecturer(id) {
-    console.log("lecturer Id =" + id);
-    const apiUrl = apiUrlLecturers + `/${id}`;
-    console.log(apiUrl);
+    const apiUrl = `${apiUrlLecturers}/${id}`;
     try {
         const response = await fetch(apiUrl, {
             method: 'DELETE',
@@ -83,26 +81,29 @@ async function deleteLecturer(id) {
         } else {
             console.error('Fehler bei der Anfrage:', response.status, response.statusText);
         }
-    } catch (err) {
-        console.log(err.message);
+    } catch (error) {
+        console.error(`Error deleting lecturer: ${error.message}`);
     }
 }
 
 function activateSidebarLink(id) {
-    let navlinkId = id;
-    let linkElement = document.getElementById(navlinkId);
-    let sidebarLinks = document.getElementsByClassName('nav-link');
-    for (let element of sidebarLinks) {
+    const linkElement = document.getElementById(id);
+    const sidebarLinks = document.getElementsByClassName('nav-link');
+    for (const element of sidebarLinks) {
         element.classList.remove('active');
     }
-    if (linkElement != undefined) {
+    if (linkElement) {
         linkElement.classList.add('active');
+    } else {
+        console.warn(`Element with id ${id} not found.`);
     }
 }
 
-export { activateSidebarLink };
-export { deleteLecturer };
-export { updateLecturer };
-export { fetchLecturer };
-export { fetchLecturers };
-export { saveLecturer };
+export {
+    activateSidebarLink,
+    deleteLecturer,
+    updateLecturer,
+    fetchLecturer,
+    fetchLecturers,
+    saveLecturer
+};

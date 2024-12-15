@@ -54,7 +54,8 @@ function StudyProgramList() {
                                     <tr>
                                         <th>Abkürzung</th>
                                         <th>Name</th>
-                                        <th></th>
+                                        <th>Dozent</th>
+                                        <th>Vorlesung</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,6 +64,8 @@ function StudyProgramList() {
                                             <tr key={studyprogram.id}>
                                                 <td>{studyprogram.name}</td>
                                                 <td>{studyprogram.shortName}</td>
+                                                <td></td>
+                                                <td></td>
                                                 <td className='right-align-content'>
                                                     <button onClick={() => editStudyProgram(studyprogram.id)} className='btn btn-primary btn-small'> <span><i className='bi bi-pen'></i> Edit</span></button>
                                                     <button onClick={() => deleteProgram(studyprogram.id)} className='btn btn-primary btn-small ms-2'> <span><i className='bi bi-trash'></i> Delete</span></button>

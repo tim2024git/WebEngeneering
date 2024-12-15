@@ -48,8 +48,8 @@ function LecturerList() {
                             <table className='table table-hover table-responsive table-alignment'>
                                 <thead>
                                     <tr>
-                                        <th>Dozent Name</th>
-                                        <th></th>
+                                        <th>Nachname</th>
+                                        <th>Vorname</th>
                                         <th>Email</th>
                                         
                                         <th></th>
