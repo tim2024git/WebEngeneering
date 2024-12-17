@@ -7,20 +7,20 @@ import Slidepic3 from '../assets/Slidepic3.jpg';
 const data = [
   {
     image: Slidepic1,
-    caption: "Duale Hochschule BW",
-    description: "Eine Schule für Studierende"
+    caption: "Duale Hochschule BW Lörrach",
+    description: "Innovative duale Studiengänge"
   },
   {
     image: Slidepic2,
-    caption: "Caption",
-    description: "Description Here"
+    caption: "Internationalität",
+    description: "Trinationale Studienprogramme"
   },
   {
     image: Slidepic3,
-    caption: "Caption",
-    description: "Description Here"
+    caption: "Praxisorientiert",
+    description: "Enge Zusammenarbeit mit Unternehmen"
   }
-]
+];
 
 function HomeCarousel() {
   const [index, setIndex] = useState(0);

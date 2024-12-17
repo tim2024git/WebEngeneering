@@ -20,6 +20,8 @@ import EditStudyProgram from './components/EditStudyProgramm';
 import EditLecture from './components/EditLecture';
 import EditLecturer from './components/EditLecturer';
 import EditLectureDate from './components/EditLectureDate';
+import Impressum from './components/Impressum';
+
 
 import './App.css';
 
@@ -28,6 +30,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeView />} />
+        <Route path="/Impressum" element={<Impressum />}></Route>
         <Route path="/admin" element={<AdminView />}>
           <Route index element={<Navigate to="studyprograms" />} />
           <Route path="studyprograms" element={<StudyProgramList />} />
