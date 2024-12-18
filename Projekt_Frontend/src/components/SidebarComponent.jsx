@@ -22,7 +22,7 @@ function SidebarComponent() {
         body: JSON.stringify({
           firstName: 'Raymond',
           lastName: 'Bimazubute',
-          email: 'john.doe@example.com'
+          email: 'raymond.bimazubute@dhbw-stuttgart.de'
         })
       }).then(response => response.json());
 
@@ -32,9 +32,9 @@ function SidebarComponent() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          firstName: 'Raymond',
-          lastName: 'Bimazubute',
-          email: 'jane.smith@example.com'
+          firstName: 'Viet',
+          lastName: 'Schenk',
+          email: 'viet.schenk@example.com'
         })
       }).then(response => response.json());
 
@@ -68,9 +68,9 @@ function SidebarComponent() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          lectureName: 'Datenbanken',
+          lectureName: 'Web Engineering 1',
           duration: 120,
-          modulName: 'DB'
+          modulName: 'WebE'
         })
       }).then(response => response.json());
 
@@ -80,9 +80,9 @@ function SidebarComponent() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          lectureName: 'Datenbanken',
-          duration: 120,
-          modulName: 'DB'
+          lectureName: 'Digitaltechnik',
+          duration: 90,
+          modulName: 'DIT'
         })
       }).then(response => response.json());
 
@@ -92,9 +92,9 @@ function SidebarComponent() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          lectureName: 'Datenbanken',
-          duration: 120,
-          modulName: 'DB'
+          lectureName: 'Programmieren 1',
+          duration: 150,
+          modulName: 'PG1'
         })
       }).then(response => response.json());
 
